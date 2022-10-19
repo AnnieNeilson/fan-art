@@ -1,0 +1,41 @@
+.App {
+    font-family: "Kanit", sans-serif;
+    background-color: rgb(230, 230, 230);
+    min-height: 100vh;
+}
+.Main{
+    padding-top: 81px;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  a {
+    font-family: 'Kanit';
+    font-weight: 900;
+    color: #009488;
+    transition: color ease-in-out 0.3s;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:hover i {
+    color: #00b3a4;
+    transition: color ease-in-out 0.3s;
+  }
+  
+  i {
+    color: #cfced3;
+    font-size: 1.6rem;
+    padding: 7px;
+    vertical-align: middle;
+  }
+  
+  i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #00b3a4;
+  }
