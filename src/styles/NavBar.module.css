@@ -4,6 +4,12 @@
 
 }
 
+.NavBrandName {
+    font-family: "Pacifico", sans-serif ;
+    font-weight: 200;
+    line-height: normal;
+}
+
 .NavLink {
     padding: 5px;
     color: #009488;

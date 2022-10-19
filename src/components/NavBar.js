@@ -10,8 +10,8 @@ const NavBar = () => {
       <Navbar className={styles.NavBar} expand="md" fixed="top">
         <Container>
             <NavLink exact to="/">
-          <Navbar.Brand>
-            <img src={logo} alt="logo" height="45" />
+          <Navbar.Brand className={styles.NavBrandName}>
+            <img src={logo} alt="logo" height="45" />Fan Art
           </Navbar.Brand>
           </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

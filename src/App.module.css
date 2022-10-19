@@ -7,6 +7,16 @@
     padding-top: 81px;
 }
 
+h1 {
+  font-family: "Pacifico", sans-serif ;
+}
+
+.FillerImage {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
 * {
     box-sizing: border-box;
   }
