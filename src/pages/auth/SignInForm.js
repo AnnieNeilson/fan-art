@@ -14,8 +14,11 @@ import image from "../../assets/signinform-image.png";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import axios from "axios";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContexts";
 
 const SignInForm = () => {
+  const setCurrentUser = useSetCurrentUser();
+
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -33,11 +36,12 @@ const SignInForm = () => {
       [event.target.name]: event.target.value,
     });
   };
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("dj-rest-auth/login/", signInData);
+      const { data } = await axios.post("dj-rest-auth/login/", signInData);
+      setCurrentUser(data.user);
       history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
@@ -48,9 +52,9 @@ const SignInForm = () => {
     <div>
       <Row>
         <Col className="my-auto d-none d-md-block p-2 " md={4}>
-          <Container>
+          <Container className={styles.Center}>
             <Image className={`${appStyles.FillerImage}`} src={image} />
-            <h1 className={styles.TextCenter}>Welcome back!</h1>
+            <h1>Welcome back!</h1>
           </Container>
         </Col>
         <Col className="my-auto py-2 p-md-2" md={8}>
@@ -101,7 +105,8 @@ const SignInForm = () => {
               </p>
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Bright}`}
-                type="submit">
+                type="submit"
+              >
                 Sign In
               </Button>
               {errors.non_field_errors?.map((message, idx) => (

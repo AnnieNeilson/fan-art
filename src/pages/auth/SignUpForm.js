@@ -125,9 +125,9 @@ const SignUpForm = () => {
           </Container>
         </Col>
         <Col className="my-auto d-none d-md-block p-2 " md={4}>
-          <Container>
+          <Container className={styles.Center}>
             <Image className={`${appStyles.FillerImage}`} src={image} />
-            <h1 className={styles.TextCenter}>Join us!</h1>
+            <h1>Join us!</h1>
           </Container>
         </Col>
       </Row>
