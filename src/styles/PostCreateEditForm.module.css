@@ -1,0 +1,24 @@
+.Upload{
+    background-image: url('../assets/hobbit-background.jpg');
+    background-size:cover;
+    background-repeat:no-repeat; 
+    color: #fff;
+    min-height: 343px;
+}
+
+    .Uploadicon:hover {
+        opacity: 0.5;
+      }
+      
+      .Uploadicon {
+        opacity: 1.0;
+      }
+    
+
+
+.Container {
+    min-height: 343px;
+
+
+  }
+
