@@ -71,9 +71,6 @@ const SignInForm = () => {
                   value={username}
                   onChange={handleChange}
                 />
-                {/* <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text> */}
               </Form.Group>
               {errors.username?.map((message, idx) => (
                 <Alert variant="danger" key={idx}>
