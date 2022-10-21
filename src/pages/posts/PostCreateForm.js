@@ -20,10 +20,10 @@ function PostCreateForm() {
   const [errors, setErrors] = useState({});
   const [postData, setPostData] = useState({
     title: "",
-    description: "",
+    content: "",
     image: "",
   });
-  const { title, description, image } = postData;
+  const { title, content, image } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -50,7 +50,7 @@ function PostCreateForm() {
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append("description", description);
+    formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
     try {
       const { data } = await axiosReq.post("/posts/", formData);
@@ -84,14 +84,14 @@ function PostCreateForm() {
         <Form.Label>Describe your work!</Form.Label>
         <Form.Control
           as="textarea"
-          placeholder="Description"
+          placeholder="content"
           rows={6}
-          name="description"
-          value={description}
+          name="content"
+          value={content}
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.description?.map((message, idx) => (
+      {errors?.content?.map((message, idx) => (
         <Alert variant="danger" key={idx}>
           {message}
         </Alert> 
