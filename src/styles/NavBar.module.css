@@ -1,22 +1,24 @@
 .NavBar {
-    background-color: rgb(255, 255, 255);
-    border: 1px rgb(87, 87, 87);
+    background-color: rgb(75, 75, 75);
+    border-bottom: 3px solid #007a70;
 
 }
 
 .NavBrandName {
     font-family: "Pacifico", sans-serif ;
-    font-weight: 200;
+    font-weight: 100;
     line-height: normal;
+    font-size: xx-large;
+    /* color: #02b4a5; */
 }
 
 .NavLink {
     padding: 5px;
-    color: #009488;
+    color: #ebebeb;
 }
 
 .Active i {
-    color: #00756c;
+    color: #00332f;
 }
 
 

@@ -1,7 +1,8 @@
 .App {
     font-family: "Kanit", sans-serif;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(100, 100, 100);
     min-height: 100vh;
+    color: #ebebeb;
 }
 .Main{
     padding-top: 95px;
@@ -19,10 +20,10 @@ h1 {
 
 
 .Content {
-  background-color: #ffffff;
+  background-color: #505050;
   padding: 10px;
   border-radius: 2px;
-  border: 1px solid #dadadf;
+  border: 3px solid #333333;
 }
 
 .FillerImage {
@@ -44,6 +45,7 @@ h1 {
   
   a:hover {
     text-decoration: none;
+    color: #2ae9d9;
   }
   
   a:hover i {
@@ -52,7 +54,7 @@ h1 {
   }
   
   i {
-    color: #cfced3;
+    color: #2ae9d9;
     font-size: 1.6rem;
     padding: 7px;
     vertical-align: middle;

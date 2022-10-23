@@ -93,6 +93,7 @@ const NavBar = () => {
         expanded={expanded}
         expand="md"
         fixed="top"
+        variant="dark"
       >
         <Container>
           <NavLink exact to="/">
