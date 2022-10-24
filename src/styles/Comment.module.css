@@ -1,0 +1,21 @@
+.Owner {
+    font-weight: bold;
+    color: #009488;
+    margin-right: 8px;
+  }
+  
+  .Date {
+    color: #007a70;
+  }
+
+  .Comment{
+
+    background-color: rgb(172, 172, 172);
+  }
+  .Comment p {
+    color:black;
+  }
+
+  .Comment Avatar {
+    padding-right: 15px;
+  }
