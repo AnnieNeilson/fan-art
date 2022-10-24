@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Media } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
+import CommentEditForm from "./CommentEditForm";
 
 const Comment = (props) => {
   const {
@@ -18,13 +19,9 @@ const Comment = (props) => {
     setPost,
     setComments,
   } = props;
-  const history = useHistory();
+  const [showEditForm, setShowEditForm] = useState(false);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
-
-  //   const handleEdit = () => {
-  //     history.push(`/posts/${id}/edit`);
-  //   };
 
   const handleDelete = async () => {
     try {
@@ -59,13 +56,27 @@ const Comment = (props) => {
                 </span>
                 <span className={styles.Date}>{updated_at}</span>
               </div>
-              <p>{content}</p>
-            </Media.Body>
-            {is_owner && (
-              <MoreDropdown
-                // handleEdit={handleEdit}
-                handleDelete={handleDelete}
-              />
+
+              {showEditForm ? (
+            <CommentEditForm 
+            id={id} profile_id={profile_id} content={content}
+            profileImage={profile_image} setComments={setComments}
+            setShowEditForm={setShowEditForm} />
+          ) : (
+            <p>{content}</p>
+          )}
+        </Media.Body>
+        {is_owner && !showEditForm && (
+          <MoreDropdown
+            handleEdit={() => setShowEditForm(true)}
+            handleDelete={handleDelete}
+          />
+            // </Media.Body>
+            // {is_owner && (
+            //   <MoreDropdown
+            //     // handleEdit={handleEdit}
+            //     handleDelete={handleDelete}
+            //   />
             )}
           </Media>
         </Card.Body>
