@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PopularPosts.module.css";
-import { Container, Image } from "react-bootstrap";
+import { Accordion, Button, Container, Image } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 
@@ -16,6 +16,10 @@ const PopularPosts = () => {
   const { popularPosts } = posts;
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
+  const [isClicked, setIsClicked] = useState(false)
+
+
+
 
   useEffect(() => {
     const handleMount = async () => {
@@ -30,6 +34,7 @@ const PopularPosts = () => {
         console.log(err);
       }
     };
+    setIsClicked(false);
     setHasLoaded(false);
     const timer = setTimeout(() => {
       handleMount();
@@ -41,39 +46,62 @@ const PopularPosts = () => {
 
   return (
     <Container className={appStyles.Content}>
-      <h2>Popular Posts</h2>
-      {hasLoaded ? (
-        <>
-          {popularPosts.results.length ? (
-            <div className="text-center">
-              {popularPosts.results.slice(0, 4).map((post) => (
-                <div className={appStyles.Content} key={post.id}>
-                  <h4>{post.title}</h4>
-                  <Link to={`/posts/${post.id}`}>
-                    <Image className={styles.ImagePreviews} src={post.image} />
-                  </Link>
-                  <hr />
+      <Accordion defaultActiveKey="0">
+        <h2>
+          Popular Posts
+          <Accordion.Toggle
+            as={Button}
+            variant="link"
+            eventKey="0"
+            className={styles.ToggleButton}
+          >
+            {" "}
+            <i
+             onClick={() => setIsClicked(prev => !prev)} 
 
-                  <Link to={`/profiles/${post.profile_id}`}>
-                    <h5>{post.owner}</h5>
-                  </Link>
+             className={isClicked ? "fas fa-toggle-off" : "fas fa-toggle-on"} />
+             
+          </Accordion.Toggle>
+        </h2>
 
-                  {post.likes_count}
-                  <i className={`fas fa-heart ${styles.Disabled} `} />
+        {hasLoaded ? (
+          <>
+            {popularPosts.results.length ? (
+              <Accordion.Collapse eventKey="0">
+                <div className="text-center">
+                  {popularPosts.results.slice(0, 4).map((post) => (
+                    <div className={appStyles.Content} key={post.id}>
+                      <h4>{post.title}</h4>
+                      <Link to={`/posts/${post.id}`}>
+                        <Image
+                          className={styles.ImagePreviews}
+                          src={post.image}
+                        />
+                      </Link>
+                      <hr />
+
+                      <Link to={`/profiles/${post.profile_id}`}>
+                        <h5>{post.owner}</h5>
+                      </Link>
+
+                      {post.likes_count}
+                      <i className={`fas fa-heart ${styles.Disabled} `} />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          ) : (
-            <Container className={appStyles.Content}>
-              <p>No content</p>
-            </Container>
-          )}
-        </>
-      ) : (
-        <Container className={appStyles.Content}>
-          <Asset spinner />
-        </Container>
-      )}
+              </Accordion.Collapse>
+            ) : (
+              <Container className={appStyles.Content}>
+                <p>No content</p>
+              </Container>
+            )}
+          </>
+        ) : (
+          <Container className={appStyles.Content}>
+            <Asset spinner />
+          </Container>
+        )}
+      </Accordion>
     </Container>
   );
 };
