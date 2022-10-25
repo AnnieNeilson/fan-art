@@ -9,7 +9,7 @@ import Asset from "../../components/Assets";
 
 import { Link } from "react-router-dom";
 
-const PopularPosts = () => {
+const DiscussedPosts = () => {
   const [posts, setPosts] = useState({
     popularPosts: { results: [] },
   });
@@ -21,7 +21,7 @@ const PopularPosts = () => {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/?ordering=-likes_count`);
+        const { data } = await axiosReq.get(`/posts/?ordering=-comments_count`);
         setPosts((prevState) => ({
           ...prevState,
           popularPosts: data,
@@ -45,7 +45,7 @@ const PopularPosts = () => {
     <Container className={appStyles.Content}>
       <Accordion defaultActiveKey="0">
         <h2>
-          Popular Posts
+          Hot Topics
           <Accordion.Toggle
             as={Button}
             variant="link"
@@ -81,8 +81,8 @@ const PopularPosts = () => {
                         <h5>{post.owner}</h5>
                       </Link>
 
-                      {post.likes_count}
-                      <i className={`fas fa-heart ${styles.Disabled} `} />
+                      {post.comments_count}
+                      <i className={`fas fa-comment ${styles.Disabled} `} />
                     </div>
                   ))}
                 </div>
@@ -103,4 +103,4 @@ const PopularPosts = () => {
   );
 };
 
-export default PopularPosts;
+export default DiscussedPosts;
