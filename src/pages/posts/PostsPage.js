@@ -16,6 +16,7 @@ import Asset from "../../components/Assets";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import PopularPosts from "./PopularPosts";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -37,11 +38,10 @@ function PostsPage({ message, filter = "" }) {
     setHasLoaded(false);
     const timer = setTimeout(() => {
       fetchPosts();
-    }, 1000)
-    return() => {
-      clearTimeout(timer)
-    }
-
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [filter, query, pathname]);
 
   return (
@@ -54,8 +54,8 @@ function PostsPage({ message, filter = "" }) {
           onSubmit={(event) => event.preventDefault()}
         >
           <Form.Control
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
             type="text"
             className="mr-sm-2"
             placeholder="search posts"
@@ -64,18 +64,15 @@ function PostsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {posts.results.length ? (
-              <InfiniteScroll 
-                children={
-                  posts.results.map((post) => (
-                    <Post key={post.id} {...post} setPosts={setPosts} />
-                  ))
-                }
+              <InfiniteScroll
+                children={posts.results.map((post) => (
+                  <Post key={post.id} {...post} setPosts={setPosts} />
+                ))}
                 dataLength={posts.results.length}
                 loader={<Asset spinner />}
                 hasMore={!!posts.next}
                 next={() => fetchMoreData(posts, setPosts)}
               />
-              
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
@@ -90,6 +87,8 @@ function PostsPage({ message, filter = "" }) {
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
+        <PopularPosts />
+        <p>Most discussed posts</p>
       </Col>
     </Row>
   );

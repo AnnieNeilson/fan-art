@@ -17,6 +17,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import noResults from "../../assets/no-results.png";
 import { fetchMoreData } from "../../utils/utils";
 import Post from "../posts/Post";
+import PopularPosts from "../posts/PopularPosts";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -140,6 +141,8 @@ function ProfilePage() {
       </Col>
       <Col lg={4}>
         <PopularProfiles />
+        <PopularPosts />
+        <p>Most discussed posts</p>
       </Col>
     </Row>
   );
