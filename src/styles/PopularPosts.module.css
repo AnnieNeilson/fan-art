@@ -1,0 +1,14 @@
+.ImagePreviews{
+    width:-webkit-fill-available
+}
+.PopularPost{
+    text-align: center;
+    line-height: normal;
+}
+
+
+.Disabled {
+    height:auto;
+    color:#d10e00;
+    pointer-events: none;
+  }
