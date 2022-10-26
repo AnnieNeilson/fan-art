@@ -9,14 +9,22 @@ import Asset from "../../components/Assets";
 
 import { Link } from "react-router-dom";
 
-const DiscussedPosts = () => {
+const DiscussedPosts = ({ mobile }) => {
   const [posts, setPosts] = useState({
-    popularPosts: { results: [] },
+    discussedPosts: { results: [] },
   });
-  const { popularPosts } = posts;
+  const { discussedPosts } = posts;
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
-  const [isClicked, setIsClicked] = useState(false)
+  const [isClicked, setIsClicked] = useState(false);
+  const mobileStyle = {
+    maxWidth: "90%",
+    overflow: "hidden",
+  };
+  const divMobileStyles = {
+    maxHeight: "180px",
+    overflow: "hidden",
+  };
 
   useEffect(() => {
     const handleMount = async () => {
@@ -24,14 +32,14 @@ const DiscussedPosts = () => {
         const { data } = await axiosReq.get(`/posts/?ordering=-comments_count`);
         setPosts((prevState) => ({
           ...prevState,
-          popularPosts: data,
+          discussedPosts: data,
         }));
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
       }
     };
-    setIsClicked(false);
+    setIsClicked(true);
     setHasLoaded(false);
     const timer = setTimeout(() => {
       handleMount();
@@ -42,9 +50,11 @@ const DiscussedPosts = () => {
   }, [currentUser]);
 
   return (
-    <Container className={appStyles.Content}>
-      <Accordion defaultActiveKey="0">
-        <h2>
+    <Container className={`${appStyles.Content} ${
+      mobile && "d-lg-none text-center mb-3"
+    }`}>
+      <Accordion >
+        <h3>
           Hot Topics
           <Accordion.Toggle
             as={Button}
@@ -54,39 +64,69 @@ const DiscussedPosts = () => {
           >
             {" "}
             <i
-             onClick={() => setIsClicked(prev => !prev)} 
-
-             className={isClicked ? "fas fa-toggle-off" : "fas fa-toggle-on"} />
-             
+              onClick={() => setIsClicked((prev) => !prev)}
+              className={isClicked ? "fas fa-toggle-off" : "fas fa-toggle-on"}
+            />
           </Accordion.Toggle>
-        </h2>
+        </h3>
 
         {hasLoaded ? (
           <>
-            {popularPosts.results.length ? (
-              <Accordion.Collapse eventKey="0">
-                <div className="text-center">
-                  {popularPosts.results.slice(0, 4).map((post) => (
-                    <div className={appStyles.Content} key={post.id}>
-                      <h4>{post.title}</h4>
-                      <Link to={`/posts/${post.id}`}>
-                        <Image
-                          className={styles.ImagePreviews}
-                          src={post.image}
-                        />
-                      </Link>
-                      <hr />
+            {discussedPosts.results.length ? (
+              <>
+                {mobile ? ( 
+                  <Accordion.Collapse
+                    eventKey="0"
+                    className="d-flex justify-content-around"
 
-                      <Link to={`/profiles/${post.profile_id}`}>
-                        <h5>{post.owner}</h5>
-                      </Link>
+                  >
+                    <div className="text-center" mobile>
+                      {discussedPosts.results.slice(0, 3).map((post) => (
+                        <div className={appStyles.Content} key={post.id} >
+                          <h4>{post.title}</h4>
+                          <div style={divMobileStyles}>
+                            <Link to={`/posts/${post.id}`}>
+                              <Image style={mobileStyle} src={post.image} />
+                            </Link>
+                          </div>
+                          <hr />
 
-                      {post.comments_count}
-                      <i className={`fas fa-comment ${styles.Disabled} `} />
+                          <Link to={`/profiles/${post.profile_id}`}>
+                            <h5>{post.owner}</h5>
+                          </Link>
+
+                          {post.comments_count}
+                          <i className={`fas fa-comment ${styles.Disabled} `} />
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </Accordion.Collapse>
+                  </Accordion.Collapse>
+                ) : (
+                  <Accordion.Collapse eventKey="0">
+                    <div className="text-center">
+                      {discussedPosts.results.slice(0, 3).map((post) => (
+                        <div className={appStyles.Content} key={post.id}>
+                          <h4>{post.title}</h4>
+                          <Link to={`/posts/${post.id}`}>
+                            <Image
+                              className={styles.ImagePreviews}
+                              src={post.image}
+                            />
+                          </Link>
+                          <hr />
+
+                          <Link to={`/profiles/${post.profile_id}`}>
+                            <h5>{post.owner}</h5>
+                          </Link>
+
+                          {post.comments_count}
+                          <i className={`fas fa-comment ${styles.Disabled} `} />
+                        </div>
+                      ))}
+                    </div>
+                  </Accordion.Collapse>
+                )}
+              </>
             ) : (
               <Container className={appStyles.Content}>
                 <p>No content</p>

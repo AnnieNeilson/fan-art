@@ -18,6 +18,7 @@ import noResults from "../../assets/no-results.png";
 import { fetchMoreData } from "../../utils/utils";
 import Post from "../posts/Post";
 import PopularPosts from "../posts/PopularPosts";
+import DiscussedPosts from "../posts/DiscussedPosts";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -142,7 +143,7 @@ function ProfilePage() {
       <Col lg={4}>
         <PopularProfiles />
         <PopularPosts />
-        <p>Most discussed posts</p>
+        <DiscussedPosts />
       </Col>
     </Row>
   );

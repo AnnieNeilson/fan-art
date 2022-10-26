@@ -4,6 +4,9 @@
     height: 120px;
     width: 120px;
 }
+.WordBreak {
+    word-break: break-all;
+  }
 
 @media screen and (max-width: 991px) {
     .ProfileImage {

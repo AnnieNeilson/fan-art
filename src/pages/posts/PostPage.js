@@ -17,6 +17,7 @@ import Asset from "../../components/Assets";
 import { fetchMoreData } from "../../utils/utils";
 import PopularPosts from "./PopularPosts";
 import PopularProfiles from "../profiles/PopularProfiles";
+import DiscussedPosts from "./DiscussedPosts";
 
 function PostPage() {
   const { id } = useParams();
@@ -45,7 +46,7 @@ function PostPage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles for mobile</p>
+      <PopularProfiles mobile />
         <Post {...post.results[0]} setPosts={setPost} postPage />
         <Container className={appStyles.Content}>
           {currentUser ? (
@@ -60,20 +61,20 @@ function PostPage() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            <InfiniteScroll children={comments.results.map((comment) => (
-              <Comment
-                key={comment.id}
-                {...comment}
-                setPost={setPost}
-                setComments={setComments}
-              />
-            ))}
-            dataLength={comments.results.length}
-            loader={<Asset spinner />}
-            hasMore={!!comments.next}
-            next={() => !!fetchMoreData(comments, setComments)} 
+            <InfiniteScroll
+              children={comments.results.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  {...comment}
+                  setPost={setPost}
+                  setComments={setComments}
+                />
+              ))}
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => !!fetchMoreData(comments, setComments)}
             />
-            
           ) : currentUser ? (
             <div className="text-center">
               No comments yet, be the first to comment!
@@ -87,9 +88,9 @@ function PostPage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-      <PopularProfiles />
-      <PopularPosts />
-        <p>Most discussed posts</p>
+        <PopularProfiles />
+        <PopularPosts />
+        <DiscussedPosts />
       </Col>
     </Row>
   );
