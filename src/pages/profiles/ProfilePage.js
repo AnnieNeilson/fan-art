@@ -19,6 +19,7 @@ import { fetchMoreData } from "../../utils/utils";
 import Post from "../posts/Post";
 import PopularPosts from "../posts/PopularPosts";
 import DiscussedPosts from "../posts/DiscussedPosts";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -53,7 +54,9 @@ function ProfilePage() {
   }, [id, setProfileData]);
 
   const mainProfile = (
+    
     <>
+      
       <Row className="h-100">
         <Col lg={3}>
           <Image
@@ -61,10 +64,12 @@ function ProfilePage() {
             roundedCircle
             src={profile?.image}
           />
+          
         </Col>
         <Col lg={6}>
           <h1>{profile?.owner}</h1>
-          <Row>
+          {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+          <Row className="text-center">
             <Col className="my-2" xs={3}>
               <div>{profile?.posts_count}</div>
               <div>posts</div>
@@ -78,10 +83,12 @@ function ProfilePage() {
               <div>{profile?.following_count}</div>
               <div>following</div>
             </Col>
+
             <Col lg={3} className="align-self-center">
-              {!is_owner &&
+
+              {!profile?.is_owner &&
                 currentUser &&
-                (profile.following_id ? (
+                (profile?.following_id ? (
                   <Button className={btnStyles.Button} onClick={() => handleUnfollow(profile)}>
                     unfollow
                   </Button>
