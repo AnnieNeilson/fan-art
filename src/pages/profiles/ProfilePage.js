@@ -57,34 +57,48 @@ function ProfilePage() {
     
     <>
       
-      <Row className="h-100">
+      <Row className="h-100 text-center">
         <Col lg={3}>
           <Image
             className={styles.ProfileImage}
             roundedCircle
             src={profile?.image}
           />
-          
+
         </Col>
         <Col lg={6}>
+
           <h1>{profile?.owner}</h1>
-          {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+          
           <Row className="text-center">
-            <Col className="my-2" xs={3}>
+            <Col className="my-2" xs={4}>
               <div>{profile?.posts_count}</div>
               <div>posts</div>
             </Col>
-            <Col className="my-2" xs={3}>
+            <Col className="my-2" xs={4}>
               <div>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
 
-            <Col className="my-2" xs={3}>
+            <Col className="my-2" xs={4}>
               <div>{profile?.following_count}</div>
               <div>following</div>
             </Col>
 
-            <Col lg={3} className="align-self-center">
+            
+            
+          </Row>
+          
+          <Row>
+            <Col>
+              <hr />
+              Page bio
+            </Col>
+          </Row>
+
+        </Col>
+        <Col lg={3} className="align-self-center">
+        {profile?.is_owner && <ProfileEditDropdown id={profile?.id} className={styles.Dropdown} />}
 
               {!profile?.is_owner &&
                 currentUser &&
@@ -101,14 +115,7 @@ function ProfilePage() {
                   </Button>
                 ))}
             </Col>
-          </Row>
-          <Row>
-            <Col>
-              <hr />
-              Page bio
-            </Col>
-          </Row>
-        </Col>
+
       </Row>
     </>
   );

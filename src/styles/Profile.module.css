@@ -8,10 +8,4 @@
     word-break: break-all;
   }
 
-@media screen and (max-width: 991px) {
-    .ProfileImage {
-        height: 250px;
-        width: 250px;
-    }
-    
-}
+
