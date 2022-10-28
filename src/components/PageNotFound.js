@@ -1,0 +1,18 @@
+import React from "react";
+import { Container, Image } from "react-bootstrap";
+import noResults from "../assets/no-results.png";
+import styles from "../styles/PageNotFound.module.css";
+
+const PageNotFound = () => {
+  return (
+    <div>
+      <Container className={styles.Content}>
+        <h1>Page Not Found!</h1>
+        <Image src={noResults} />
+        <h5>*jedi hand wave* this is not the page you're looking for</h5>
+      </Container>
+    </div>
+  );
+};
+
+export default PageNotFound;
