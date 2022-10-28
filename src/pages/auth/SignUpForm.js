@@ -14,8 +14,10 @@ import image from "../../assets/signupform-vader.png";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import axios from "axios";
-
+import { useRedirect } from "../../hooks/useRedirect.js";
+ 
 const SignUpForm = () => {
+  useRedirect("loggedIn")
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
@@ -39,7 +41,7 @@ const SignUpForm = () => {
     event.preventDefault();
     try {
       await axios.post("dj-rest-auth/registration/", signUpData);
-      history.push("/signin");
+      history.push('/signin');
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -62,9 +64,7 @@ const SignUpForm = () => {
                   value={username}
                   onChange={handleChange}
                 />
-                {/* <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text> */}
+
               </Form.Group>
               {errors.username?.map((message, idx) => (
                 <Alert variant="danger" key={idx}>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import styles from "../../styles/Profile.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
@@ -9,7 +9,7 @@ import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
 
 const Profile = (props) => {
-  const { profile, mobile, imageSize = 55 } = props;
+  const { profile, mobile } = props;
   const { id, following_id, image, owner } = profile;
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;

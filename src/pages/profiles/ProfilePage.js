@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
-import Avatar from "../../components/Avatar";
+
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import styles from "../../styles/Profile.module.css";
 import appStyles from "../../App.module.css";
@@ -54,9 +54,10 @@ function ProfilePage() {
   }, [id, setProfileData]);
 
   const mainProfile = (
-    
     <>
-      
+      {profile?.is_owner && (
+        <ProfileEditDropdown id={profile?.id} className={styles.Dropdown} />
+      )}
       <Row className="h-100 text-center">
         <Col lg={3}>
           <Image
@@ -64,12 +65,11 @@ function ProfilePage() {
             roundedCircle
             src={profile?.image}
           />
-
         </Col>
         <Col lg={6}>
-
           <h1>{profile?.owner}</h1>
-          
+          <p><i className={`far fa-calendar ${appStyles.IdleIcon}`} />Joined: {profile?.created_at}</p>
+
           <Row className="text-center">
             <Col className="my-2" xs={4}>
               <div>{profile?.posts_count}</div>
@@ -84,45 +84,40 @@ function ProfilePage() {
               <div>{profile?.following_count}</div>
               <div>following</div>
             </Col>
-
-            
-            
           </Row>
-          
+
           <Row>
             <Col>
               <hr />
               <div>{profile?.content}</div>
             </Col>
           </Row>
-
         </Col>
         <Col lg={3} className="align-self-center">
-        {profile?.is_owner && <ProfileEditDropdown id={profile?.id} className={styles.Dropdown} />}
-
-              {!profile?.is_owner &&
-                currentUser &&
-                (profile?.following_id ? (
-                  <Button className={btnStyles.Button} onClick={() => handleUnfollow(profile)}>
-                    unfollow
-                  </Button>
-                ) : (
-                  <Button
-                    className={btnStyles.Button}
-                    onClick={() => handleFollow(profile)}
-                  >
-                    follow
-                  </Button>
-                ))}
-            </Col>
-
+          {!profile?.is_owner &&
+            currentUser &&
+            (profile?.following_id ? (
+              <Button
+                className={btnStyles.Button}
+                onClick={() => handleUnfollow(profile)}
+              >
+                unfollow
+              </Button>
+            ) : (
+              <Button
+                className={btnStyles.Button}
+                onClick={() => handleFollow(profile)}
+              >
+                follow
+              </Button>
+            ))}
+        </Col>
       </Row>
     </>
   );
 
   const mainProfilePosts = (
     <>
-
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll

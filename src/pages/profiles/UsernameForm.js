@@ -1,10 +1,7 @@
-import React , { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Alert, Button, Container, Form } from "react-bootstrap";
 import styles from "../../styles/SignInUpForm.module.css";
-
 import btnStyles from "../../styles/Button.module.css";
-
-import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import {
@@ -55,11 +52,11 @@ const UsernameForm = () => {
           <Form.Group controlId="username">
             <Form.Label className="d-none">new username</Form.Label>
             <Form.Control
-                placeholder="username"
-                type="text"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
-              />
+              placeholder="username"
+              type="text"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
           </Form.Group>
           {errors.username?.map((message, idx) => (
             <Alert variant="danger" key={idx}>

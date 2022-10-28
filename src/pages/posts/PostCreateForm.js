@@ -15,8 +15,10 @@ import Asset from "../../components/Assets";
 import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const [postData, setPostData] = useState({
     title: "",
@@ -94,15 +96,8 @@ function PostCreateForm() {
       {errors?.content?.map((message, idx) => (
         <Alert variant="danger" key={idx}>
           {message}
-        </Alert> 
+        </Alert>
       ))}
-      {/* <Form.Group controlId="formBasicCheckbox">
-        <Form.Text className="text-muted">
-          Please Confirm that this post only contains content that you have
-          created yourself or you have permission from the creator to share
-        </Form.Text>
-        <Form.Check type="checkbox" label="I do!" />
-      </Form.Group> */}
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
@@ -155,10 +150,10 @@ function PostCreateForm() {
               />
             </Form.Group>
             {errors?.image?.map((message, idx) => (
-        <Alert variant="danger" key={idx}>
-          {message}
-        </Alert>
-      ))}
+              <Alert variant="danger" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>

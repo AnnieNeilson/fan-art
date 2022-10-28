@@ -50,11 +50,11 @@ function PostsPage({ message, filter = "" }) {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
         <Row>
-          <Col>
-          <PopularPosts mobile />
+          <Col className="col-md-6  d-lg-none">
+          <PopularPosts />
           </Col>
-          <Col>
-          <DiscussedPosts mobile />
+          <Col className="col-md-6  d-lg-none">
+          <DiscussedPosts   />
           </Col>
         </Row>
 

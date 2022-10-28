@@ -10,7 +10,6 @@ import Profile from "./Profile";
 const PopularProfiles = ({ mobile }) => {
 
   const { popularProfiles } = useProfileData();
-
   
   return (
     <Container

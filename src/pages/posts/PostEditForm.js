@@ -114,13 +114,6 @@ function PostEditForm() {
           {message}
         </Alert>
       ))}
-      <Form.Group controlId="formBasicCheckbox">
-        <Form.Text className="text-muted">
-          Please Confirm that this post only contains content that you have
-          created yourself or you have permission from the creator to share
-        </Form.Text>
-        <Form.Check type="checkbox" label="I do!" />
-      </Form.Group>
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}

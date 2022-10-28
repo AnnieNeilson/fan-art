@@ -9,7 +9,7 @@ import Asset from "../../components/Assets";
 
 import { Link } from "react-router-dom";
 
-const PopularPosts = ({ mobile }) => {
+const PopularPosts = () => {
   const [posts, setPosts] = useState({
     popularPosts: { results: [] },
   });
@@ -51,9 +51,7 @@ const PopularPosts = ({ mobile }) => {
 
   return (
     <Container
-      className={`${appStyles.Content} ${
-        mobile && "d-lg-none text-center mb-3"
-      }`}
+      className={`${appStyles.Content} `}
     >
       <Accordion>
         <h3>
@@ -76,35 +74,6 @@ const PopularPosts = ({ mobile }) => {
           <>
             {popularPosts.results.length ? (
               <>
-                {mobile ? (
-                  <Accordion.Collapse
-                    eventKey="0"
-                    className="d-flex justify-content-around"
-
-                  >
-                    <div className="text-center">
-                      {popularPosts.results.slice(0, 3).map((post) => (
-                        <div className={appStyles.Content} key={post.id}>
-                          <h4>{post.title}</h4>
-                          <div style={divMobileStyles}>
-                            <Link to={`/posts/${post.id}`}>
-                              <Image style={mobileStyle} src={post.image} />
-                            </Link>
-                          </div>
-
-                          <hr />
-
-                          <Link to={`/profiles/${post.profile_id}`}>
-                            <h5>{post.owner}</h5>
-                          </Link>
-
-                          {post.likes_count}
-                          <i className={`fas fa-heart ${styles.Disabled} `} />
-                        </div>
-                      ))}
-                    </div>
-                  </Accordion.Collapse>
-                ) : (
                   <Accordion.Collapse eventKey="0">
                     <div className="text-center">
                       {popularPosts.results.slice(0, 3).map((post) => (
@@ -128,7 +97,7 @@ const PopularPosts = ({ mobile }) => {
                       ))}
                     </div>
                   </Accordion.Collapse>
-                )}
+                
               </>
             ) : (
               <Container className={appStyles.Content}>

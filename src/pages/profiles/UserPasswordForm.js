@@ -96,12 +96,12 @@ const UserPasswordForm = () => {
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
             >
               update password
-            </Button>          {errors.non_field_errors?.map((message, idx) => (
-            <Alert variant="danger" key={idx}>
-              {message}
-            </Alert> 
+            </Button>{" "}
+            {errors.non_field_errors?.map((message, idx) => (
+              <Alert variant="danger" key={idx}>
+                {message}
+              </Alert>
             ))}
-            
           </Form>
         </Container>
       </Col>
