@@ -1,5 +1,8 @@
 .ImagePreviews{
-    width:-webkit-fill-available
+    width:-webkit-fill-available;
+    height: 275px;
+    overflow: hidden;
+    object-fit: cover;
 }
 .PopularPost{
     text-align: center;

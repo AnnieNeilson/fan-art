@@ -85,7 +85,7 @@ const PopularPosts = () => {
                         </Link>
 
                         {post.likes_count}
-                        <i className={`fas fa-heart ${styles.Disabled} `} />
+                        <i className={`fas fa-heart ${appStyles.IdleIcon} `} />
                       </div>
                     ))}
                   </div>
