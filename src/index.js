@@ -17,6 +17,8 @@ root.render(
         </ProfileDataProvider>
       </CurrentUserProvider>
     </Router>
+    ,
+    document.getElementById("root")
 
 );
 

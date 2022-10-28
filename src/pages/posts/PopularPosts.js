@@ -17,14 +17,7 @@ const PopularPosts = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const [isClicked, setIsClicked] = useState(false);
-  const mobileStyle = {
-    maxWidth: "90%",
-    overflow: "hidden",
-  };
-  const divMobileStyles = {
-    maxHeight: "180px",
-    overflow: "hidden",
-  };
+
 
   useEffect(() => {
     const handleMount = async () => {
