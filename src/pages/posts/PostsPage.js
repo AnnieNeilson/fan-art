@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
-import { useLocation } from "react-router-dom/cjs/react-router-dom";
+import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 
@@ -24,7 +24,7 @@ function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-  const { currentUser } = useCurrentUser();
+  const currentUser = useCurrentUser();
 
   const [query, setQuery] = useState("");
 
