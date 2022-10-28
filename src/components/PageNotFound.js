@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Image } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image"
 import noResults from "../assets/no-results.png";
 import styles from "../styles/PageNotFound.module.css";
 

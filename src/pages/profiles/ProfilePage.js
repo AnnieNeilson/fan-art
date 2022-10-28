@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Image, Row } from "react-bootstrap";
-
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import styles from "../../styles/Profile.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Assets";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams } from "react-router-dom/";
 import { axiosReq } from "../../api/axiosDefaults";
 import {
   useProfileData,
@@ -47,7 +50,7 @@ function ProfilePage() {
 
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     fetchData();
@@ -68,7 +71,10 @@ function ProfilePage() {
         </Col>
         <Col lg={6}>
           <h1>{profile?.owner}</h1>
-          <p><i className={`far fa-calendar ${appStyles.IdleIcon}`} />Joined: {profile?.created_at}</p>
+          <p>
+            <i className={`far fa-calendar ${appStyles.IdleIcon}`} />
+            Joined: {profile?.created_at}
+          </p>
 
           <Row className="text-center">
             <Col className="my-2" xs={4}>

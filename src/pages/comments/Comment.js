@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Card, Media } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
+import Media from "react-bootstrap/Media"
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
@@ -37,7 +38,7 @@ const Comment = (props) => {
         results: prevComments.results.filter((comment) => comment.id !== id),
       }))
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
   return (

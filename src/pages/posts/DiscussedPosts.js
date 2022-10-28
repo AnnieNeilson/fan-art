@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PopularPosts.module.css";
-import { Accordion, Button, Container, Image } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import Accordion from "react-bootstrap/Accordion";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 
@@ -29,7 +32,7 @@ const DiscussedPosts = () => {
         }));
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     setIsClicked(true);
@@ -44,7 +47,7 @@ const DiscussedPosts = () => {
 
   return (
     <Container className={`${appStyles.Content} `}>
-      <Accordion >
+      <Accordion>
         <h3>
           Hot Topics
           <Accordion.Toggle
@@ -65,31 +68,31 @@ const DiscussedPosts = () => {
           <>
             {discussedPosts.results.length ? (
               <>
-               
-                  <Accordion.Collapse eventKey="0">
-                    <div className="text-center">
-                      {discussedPosts.results.slice(0, 3).map((post) => (
-                        <div className={appStyles.Content} key={post.id}>
-                          <h4>{post.title}</h4>
-                          <Link to={`/posts/${post.id}`}>
-                            <Image
-                              className={styles.ImagePreviews}
-                              src={post.image}
-                            />
-                          </Link>
-                          <hr />
+                <Accordion.Collapse eventKey="0">
+                  <div className="text-center">
+                    {discussedPosts.results.slice(0, 3).map((post) => (
+                      <div className={appStyles.Content} key={post.id}>
+                        <h4>{post.title}</h4>
+                        <Link to={`/posts/${post.id}`}>
+                          <Image
+                            className={styles.ImagePreviews}
+                            src={post.image}
+                          />
+                        </Link>
+                        <hr />
 
-                          <Link to={`/profiles/${post.profile_id}`}>
-                            <h5>{post.owner}</h5>
-                          </Link>
+                        <Link to={`/profiles/${post.profile_id}`}>
+                          <h5>{post.owner}</h5>
+                        </Link>
 
-                          {post.comments_count}
-                          <i className={`fas fa-comment ${appStyles.IdleIcon} `} />
-                        </div>
-                      ))}
-                    </div>
-                  </Accordion.Collapse>
-               
+                        {post.comments_count}
+                        <i
+                          className={`fas fa-comment ${appStyles.IdleIcon} `}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </Accordion.Collapse>
               </>
             ) : (
               <Container className={appStyles.Content}>

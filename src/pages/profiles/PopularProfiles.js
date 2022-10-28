@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import React from "react";
+import Container from "react-bootstrap/Container";
 import Asset from "../../components/Assets";
 import appStyles from "../../App.module.css";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
 
-
-
 const PopularProfiles = ({ mobile }) => {
-
   const { popularProfiles } = useProfileData();
-  
+
   return (
     <Container
       className={`${appStyles.Content} ${
@@ -27,9 +24,9 @@ const PopularProfiles = ({ mobile }) => {
               ))}
             </div>
           ) : (
-            popularProfiles.results.slice(0, 5).map((profile) => (
-              <Profile key={profile.id} profile={profile} />
-            ))
+            popularProfiles.results
+              .slice(0, 5)
+              .map((profile) => <Profile key={profile.id} profile={profile} />)
           )}
         </>
       ) : (

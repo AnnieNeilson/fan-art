@@ -18,11 +18,13 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import PopularPosts from "./PopularPosts";
 import DiscussedPosts from "./DiscussedPosts";
+import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
+  const { currentUser } = useCurrentUser();
 
   const [query, setQuery] = useState("");
 
@@ -33,7 +35,7 @@ function PostsPage({ message, filter = "" }) {
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     setHasLoaded(false);
@@ -43,7 +45,7 @@ function PostsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row className="h-100">
@@ -51,10 +53,10 @@ function PostsPage({ message, filter = "" }) {
         <PopularProfiles mobile />
         <Row>
           <Col className="col-md-6  d-lg-none">
-          <PopularPosts />
+            <PopularPosts />
           </Col>
           <Col className="col-md-6  d-lg-none">
-          <DiscussedPosts   />
+            <DiscussedPosts />
           </Col>
         </Row>
 
