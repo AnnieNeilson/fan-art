@@ -23,6 +23,7 @@ import Post from "../posts/Post";
 import PopularPosts from "../posts/PopularPosts";
 import DiscussedPosts from "../posts/DiscussedPosts";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -33,7 +34,7 @@ function ProfilePage() {
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.user === profile?.owner;
   const [profilePosts, setProfilePosts] = useState({ results: [] });
-
+const history = useHistory()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,6 +53,10 @@ function ProfilePage() {
         setHasLoaded(true);
       } catch (err) {
         // console.log(err);
+        if (err.code === "ERR_BAD_REQUEST") {
+          history.push("/error");
+        }
+       
       }
     };
     fetchData();

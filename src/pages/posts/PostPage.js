@@ -18,6 +18,8 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularPosts from "./PopularPosts";
 import PopularProfiles from "../profiles/PopularProfiles";
 import DiscussedPosts from "./DiscussedPosts";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
+
 
 function PostPage() {
   const { id } = useParams();
@@ -26,6 +28,7 @@ function PostPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
+  const history = useHistory()
 
   useEffect(() => {
     const handleMount = async () => {
@@ -37,7 +40,10 @@ function PostPage() {
         setPost({ results: [post] });
         setComments(comments);
       } catch (err) {
-       // console.log(err);
+        // console.log(err);
+        if (err.code === "ERR_BAD_REQUEST") {
+          history.push("/error");
+        }
       }
     };
     handleMount();
