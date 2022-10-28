@@ -4,10 +4,10 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
+import modalStyles from "../../styles/Modal.module.css";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 
@@ -19,13 +19,17 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import PopularPosts from "./PopularPosts";
 import DiscussedPosts from "./DiscussedPosts";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
+import { Button, Modal } from "react-bootstrap";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const currentUser = useCurrentUser();
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -34,10 +38,14 @@ function PostsPage({ message, filter = "" }) {
         const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
         setPosts(data);
         setHasLoaded(true);
+        if (!currentUser) {
+          handleShow();
+        }
       } catch (err) {
         // console.log(err);
       }
     };
+
     setHasLoaded(false);
     const timer = setTimeout(() => {
       fetchPosts();
@@ -58,6 +66,25 @@ function PostsPage({ message, filter = "" }) {
           <Col className="col-md-6  d-lg-none">
             <DiscussedPosts />
           </Col>
+          <Modal show={show} onHide={handleClose} >
+            <Modal.Header closeButton >
+    <h1>Welcome to Fan Art</h1>
+            </Modal.Header>
+
+            <Modal.Body>
+
+              <h4>
+                <Link to="/signup">Sign up</Link> or{" "}
+                <Link to="/signin">Sign in</Link> to get started
+              </h4>
+            </Modal.Body>
+
+            <Modal.Footer>
+              <Button  onClick={handleClose} className={modalStyles.Button}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Row>
 
         <i className={`fas fa-search ${styles.SearchIcon}`} />
