@@ -47,7 +47,7 @@ function PostPage() {
       }
     };
     handleMount();
-  }, [id]);
+  }, [id, history]);
 
   return (
     <Row className="h-100">

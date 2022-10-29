@@ -32,7 +32,6 @@ function ProfilePage() {
   const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
-  const is_owner = currentUser?.user === profile?.owner;
   const [profilePosts, setProfilePosts] = useState({ results: [] });
 const history = useHistory()
 
@@ -60,7 +59,7 @@ const history = useHistory()
       }
     };
     fetchData();
-  }, [id, setProfileData]);
+  }, [id, setProfileData, history]);
 
   const mainProfile = (
     <>
