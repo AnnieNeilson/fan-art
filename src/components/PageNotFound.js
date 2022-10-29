@@ -9,7 +9,7 @@ const PageNotFound = () => {
     <div>
       <Container className={styles.Content}>
         <h1>Page Not Found!</h1>
-        <Image src={noResults} />
+        <Image src={noResults} alt="Page Not Found"/>
         <h5>*jedi hand wave* this is not the page you're looking for</h5>
       </Container>
     </div>

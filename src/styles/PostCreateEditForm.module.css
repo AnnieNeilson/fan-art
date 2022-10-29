@@ -1,18 +1,12 @@
-
-
-    .Uploadicon:hover {
-        opacity: 0.5;
-      }
+.Uploadicon:hover {
+  opacity: 0.5;
+}
       
-      .Uploadicon {
-        opacity: 1.0;
-      }
+.Uploadicon {
+  opacity: 1.0;
+}
     
-
-
 .Container {
-    min-height: 343px;
-
-
+  min-height: 343px;
   }
 
