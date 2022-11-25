@@ -57,9 +57,7 @@ Click to see wireframes:
 
 The user stories for this project can be found in the git Issues tab [here](https://github.com/AnnieNeilson/fan-art/issues)
 
-I used my user stories to create notes with tasks. I used the Agile Kaban Method.
-While the program I used might seem basic, it could sync with my phone and also be available offline.
-![kaban board](./images/planning/kaban_notes.PNG)
+To view the project board for this site, please [Click Here](https://github.com/users/AnnieNeilson/projects/4)
 
 ### Features
 Features planned
@@ -73,6 +71,8 @@ Features planned
 * Ability to create, update and delete posts, comments, likes.
 * Ability to follow/unfollow other users
 * Ability to edit profile username, password, profile image, profile bio
+
+
 
 
 #### Home Page
