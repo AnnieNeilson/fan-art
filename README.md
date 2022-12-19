@@ -281,9 +281,40 @@ The website was extensively tested as it was developed using:
 * On the homepage I scrolled to a post that had a number on the comments count, I clicked to see the post. I could see the comments displayed below the image each with the name and avatar of the commenter clearly displayed beside the comment.
 
 20. Edit Comment: As a signed in user I can edit my comment so that I can correct or update my comment
-* I clicked the two dot icon on a comment I had made and selected Edit, the form box immediately reappeared, I changed the text in my comment and clicked save. The updated comment was displayed. I repeated the process, but clicked cancel and the original comment was displayed.
+* I clicked the three dot icon on a comment I had made and selected Edit, the form box immediately reappeared, I changed the text in my comment and clicked save. The updated comment was displayed. I repeated the process, but clicked cancel and the original comment was displayed.
 
-21. 
+21. Delete Comment: As a signed in user I can delete my comment so that I can remove my comment if I'd like to
+* I clicked the three dot icon on a comment I had made and selected delete. My comment was deleted.
+
+22. Access A Profile Page: As a user I can see other user's profiles so that I can learn more about them
+* I clicked on a user's avatar and it took me to their page. I clicked on a user's name and it took me to their page.
+
+23. Most Followed Profiles: As a user I can see a list of the most followed profiles so that I can see popular profiles
+* This feature is available on all pages except the sign in pages and the new post page. I clicked on the profiles listed, each one takes you to the appropriate profile page.
+
+24. User Stats: As a user I can see statistic about a specific user on their profile so that I can learn more about them
+* This features is visible on a user's profile page. I visited my own profile before and after following a new user. The follow count changed accordingly. As did the posts count when I created a new post.
+
+25. Follow/Unfollow a User: As a signed in user I can follow or unfollow a user so that I can easily control who I am following
+* I followed a user by clicking on the follow button beside their username in the Top Accounts section. I clicked again to unfollow. I went to a user's profile page and clicked the follow button. I could click again to unfollow.
+
+26. View specific users posts: As a user I can view all the posts of a specific user so that I can see what a user's content is like and decide if I want to follow them
+* When visiting a user's profile onlt their posts are displayed.
+
+27. Profile Page- Edit profile: As a signed in user I can edit my profile so that I can make corrections and updates to my profile
+* I clicked on the three dot icon on my profile page and clicked edit profile. I changed the profile image, the bio and then clicked save. Everything was updated successfully and I was redirected to my profile page. I repeated the process, except I clicked cancel. I was redirected to my profile page, no changes had been applied.
+
+28. Update Account Details: As a signed in user I can update my username and password so that I can control my account details and keep my account secure
+* I clicked on the three dot icon on my profile page and clicked change username. I attempted to change the username to include and invalid character, the appropriate error message was raised. I changed my username with a valid input and clicked update username, I was redirected to my profile page and my new username was displayed. I clicked on the three dot icon on my profile page and clicked change password, I was taken to a form page where I was asked to enter a new password and then confirm it. I entered two different entries and the appropriate error message was shown. I entered a valid new password and clicked update password. Everything was updated successfully and I was redirected to my profile page. I repeated the process, except I clicked cancel. I was redirected to my profile page, no changes had been applied.
+
+29. Popular posts: As a user I can see the most liked posts so that I can see what the site content is like and what is popular
+* The popular posts feature is visible on all pages except the sign in pages and the new posts page. It is initially closed. I clicked the button to open the list, I tested all the links, they lead to the appropriate pages/posts.
+
+30. Hot Topics: As a user I can see the most commented on posts so that I can see what most users are discussing and what is popular
+* The hot topics feature is visible on all pages except the sign in pages and the new posts page. It is initially closed. I clicked the button to open the list, I tested all the links, they lead to the appropriate pages/posts.
+
+31. Delete Post: As a signed in user I can delete my post so that I can remove my post if I'd like to
+* I clicked the three dot icon on one of my posts and selected delete. My post was deleted.
 
 This project has been tested throughout production. Each input has been thoroughly tested to make sure that any invalid inputs are handled correctly and a response is shown to the user. Since deployment the site has also been tested by other users, creating profiles, navigating the site, creating content with no issues.
 
