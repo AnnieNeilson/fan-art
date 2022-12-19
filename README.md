@@ -253,8 +253,37 @@ The website was extensively tested as it was developed using:
 10. Like a Post: As a user I can like a post so that I can show my support for the posts I like
 * While signed out, I attempted to like a post the appropriate warning appeared telling me to sign in to like posts. I signed in and could successfully like any post. Once clicked the icon turns red to confirm I have liked the post. I clicked again to confirm that I could unlike a post.
 
-11. View recent posts: As a user I can view posts ordered by most recently created so that I can stay update and see new content as it is posted
-* 
+11. View recent posts: As a user I can view posts ordered by most recently created so that I can stay updated and see new content as it is posted
+* I checked that the posts on the homepage, profile pages, liked posts and newsfeed were ordered by date, most recent showing first. This was so.
+
+12. Post Search: As a user I can search for posts with keywords so that I can easily find things I am interested in
+* Using the search bar I typed in text I knew was included in a post descripton, only posts containing the search term appeared. I also typed in text I knew was not in any post description or title. No posts were returned, instead a message saying "No results, try a new search?" was shown
+
+13. View Liked Posts: As a signed in user I can view the posts that I have liked so that I can revisit content that I have enjoyed in the past
+* I signed in, liked a couple of posts, then navigated to the Liked page. Only the posts I had liked appeared. I unliked one of the posts and refreshed the page. That post was no longer there.
+
+14. View Posts of followed users: As a signed in user I can filter the posts I see to just see posts of users I follow so that I can choose to see content I have specifically selected
+* I signed in and navigated to the Newsfeed, there were no posts to show. I followed an account, then back in the newsfeed page only posts of the account I had followed appeared. 
+
+15. The Post Page - View My Post: As a signed in user I can view my post's page so that I can see the details of my post, the comments and likes that have been left by other users
+* Whilst signed in I visited my profile and clicked on the post I had previously created. I was able to see all the details of my post including: title, image, description, comments count, likes count and comments.
+
+16. The Post Page - Edit Post: As a signed in user I can edit my post so that I can make corrections or updates to my post after posting it
+* Whilst signed in and on my own profile page I clicked the two dot icon and clicked on edit. I successfully am redirected to the edit page. I changed the image, the title and the description of my post and clicked update. Everything was updated successfully and I was redirected to the updated post page. I repeated the process, except I clicked cancel. I was redirected to the post page, no changes had been applied
+
+17.  Create a comment: As a signed in user I can add comments to posts so that I can share my opinions and engage with the content
+* Whilst signed in I commented on a post. When I clicked post, it was immediately added to the other comments already on that post.
+
+18. The Post Page - Comment date: As a user I can see when the comment was made/updated so that I know how old or new a comment is
+* I could see that my comment was marked as 'now' the comments below stated how long ago they were posted e.g. 1 month, 3 weeks. Comments were displayed with most recent at the top.
+
+19. View Comments: As a user I can view comments on posts so that I can see what other users think of posts
+* On the homepage I scrolled to a post that had a number on the comments count, I clicked to see the post. I could see the comments displayed below the image each with the name and avatar of the commenter clearly displayed beside the comment.
+
+20. Edit Comment: As a signed in user I can edit my comment so that I can correct or update my comment
+* I clicked the two dot icon on a comment I had made and selected Edit, the form box immediately reappeared, I changed the text in my comment and clicked save. The updated comment was displayed. I repeated the process, but clicked cancel and the original comment was displayed.
+
+21. 
 
 This project has been tested throughout production. Each input has been thoroughly tested to make sure that any invalid inputs are handled correctly and a response is shown to the user. Since deployment the site has also been tested by other users, creating profiles, navigating the site, creating content with no issues.
 
