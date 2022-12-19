@@ -217,9 +217,44 @@ I would like to give the users the ability to:
 
 The website was extensively tested as it was developed using:  
 * Console.log
-* Testing User Stories.
 * Testing scenarios manually.
 * Testing functionallity manually.
+* Testing User Stories.
+
+#### Testing User Stories
+
+1. Navigation: As a user I can clearly see and easily use a navigation bar on every page so that I can easily navigate between pages
+* I visited every page ensuring that the navigation bar was clearly visible, that all links worked effectively and that the corrent links were showned based on the user's signed in status
+
+2. Routing: As a user I can navigate through pages without reloading so that I can move between pages with ease
+* I visited every page ensuring that I could change between pages without a page refresh and that the links all functioned correctly
+
+3. Authentication - Sign Up: As a new user I can create a new account so that I can access all the features of the site
+* I confirmed that the sign up link was clear and easily found in the navigation bar. I entered invalid data to ensure that appropriate warnings appeared. When entering valid information the sign up was successful and I was brought to the sign in page without errors
+
+4. Authentication - Sign in: As a user I can sign in so that I can access my account and the functionality that signed in users can access
+* I entered invalid data to ensure that appropriate warnings appeared. When entering valid information the sign in was successful.
+
+5. Authentication - Logged In Status: As a signed in user I can tell that I am logged in so that I can see whether I need to sign in/out
+* While I was signed out the navigation bar showed the links to sign in or sign up, I signed in and confirmed the navigation bar display the sign out link. My profile name was also clearly displayed, and when I clicked on it, I was taken to my profile.
+
+6. Authentication - Refreshing access tokens: As a signed in user I can remained logged in until I choose to log out so that my user experience is not interrupted and frustrating
+* I signed in to my account, after refreshing the page I was still signed in.
+
+7. Avatar: As a signed in user I can view other user's avatars so that I can identify other users
+* By visiting the homepage, I confirmed that other user's avatars are visible on their posts and in the top accounts list. By visiting multiple users' profiles I confirmed that their avatars can be seen on their profile.
+
+8. Create Posts: As a signed in user I can create posts so that I can share my artwork on the platform
+* I signed in and followed the 'New Post' link. I successfully uploaded an image from my computer, added a title and caption and clicked create. The post was successfully created and I was brought to the post's page. I repeated the process, but I instead clicked cancel and I was redirected to the home page.
+
+9. View a Post: As a user I can view a single post so that I can see the details of the post
+* On the homepage I can view the title, image and details of a post, whether signed in or out. I clicked on several posts and each one I was successfully taken to the post's page where I could see all the details of the post including the OP's name and avatar
+
+10. Like a Post: As a user I can like a post so that I can show my support for the posts I like
+* While signed out, I attempted to like a post the appropriate warning appeared telling me to sign in to like posts. I signed in and could successfully like any post. Once clicked the icon turns red to confirm I have liked the post. I clicked again to confirm that I could unlike a post.
+
+11. View recent posts: As a user I can view posts ordered by most recently created so that I can stay update and see new content as it is posted
+* 
 
 This project has been tested throughout production. Each input has been thoroughly tested to make sure that any invalid inputs are handled correctly and a response is shown to the user. Since deployment the site has also been tested by other users, creating profiles, navigating the site, creating content with no issues.
 
