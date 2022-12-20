@@ -1,6 +1,9 @@
 # Fan Art
-
-[This link takes you to my project.](https://fan-art.herokuapp.com/)
+## Links
+[The deployed site](https://fan-art.herokuapp.com/)  
+[The deployed API](https://fan-art-drf-api.herokuapp.com/)  
+[The API repository](https://github.com/AnnieNeilson/fan-art-drf-api)  
+[My Github Project](https://github.com/users/AnnieNeilson/projects/4)
 
 ## Contents
 
@@ -9,6 +12,7 @@
 - [Wireframes](#wireframes)
 - [User Stories](#user-stories)
 - [Features](#features)
+- [Components](#components)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
 - [Deployment](#deployment)
@@ -33,7 +37,7 @@ Once a user has signed in they have access to all the features of the site:
 
 ### Planning
 
-I created this Entity relationship diagram to help visual the backend of this project
+I created this Entity relationship diagram to help visualise the backend of this project
 
 ![Entity relationship diagram](./images/planning/EntityRelatonshipDiagram.PNG)
 
@@ -179,6 +183,25 @@ I would like to give the users the ability to:
 * search post for specific terms
 * create their own tags
 
+## Components
+
+Several components were setup throughout the project and was reused throughout.
+[MoreDropdown.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/MoreDropdown.js)
+added a dropdown menu for posts and comments to allow users to edit and delete their own content. Also added a dropdown menu for profiles, so user's can edit their profile or account details.
+AxiosDefault.js
+helped with communication with the backend API
+[NavBar.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/NavBar.js) added a navigation bar to the site, it responds to user logged in status to show the appropriate links.
+[Asset.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/Assets.js) was used for the loading spinner throughout the site.
+[Avatar.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/Assets.js) was used for the user's avatar throughout the site.
+[PageNotFound.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/PageNotFound.js) provides a Page Not Found page, for any errors or if there are no search results.
+[CurrentUserContext.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/contexts/CurrentUserContexts.js)
+confirms the user's logged in status to determine what functionality is available to that user.
+[ProfileDataContext.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/contexts/ProfileDataContext.js) is used for providing data for a user's profile and for following and unfollowing users. 
+[useRedirect.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/hooks/useRedirect.js)
+redirects a user to a page based on whether they are signed in or out.
+[utils.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/utils/utils.js)
+supplies functionality to all of the components that utilise the Infinite Scroll.
+
 ## Technologies Used
 * HTML, JavaScript & CSS  
 --  This project uses custom written CSS to style the Website and features custom JSX code
@@ -212,8 +235,6 @@ I would like to give the users the ability to:
 ## Testing
 
 ### Manual Testing
-
- I have manually tested
 
 The website was extensively tested as it was developed using:  
 * Console.log
@@ -322,7 +343,7 @@ This project has been tested throughout production. Each input has been thorough
 
 The CSS style sheets were validated using W3C Validator and no errors were returned.
 The finished project was also run through Wave to check for issues with contrast styling and HTML structure.
-Throughout development I have used the Prettier extension whcih formats code only when there are no errors in the code. It has been very helpful.
+Throughout development I have used the Prettier extension which formats code only when there are no errors in the code. It has been very helpful.
 
 ### Lighthouse Testing  
 ![Lighthouse testing](./images/testing/LighthouseReport.PNG)  
