@@ -6,7 +6,7 @@
 [My Github Project](https://github.com/users/AnnieNeilson/projects/4)
 
 ## Contents
-
+- [Site Goals](#site-goals)
 - [Description](#description)
 - [Planning](#planning)
 - [Wireframes](#wireframes)
@@ -21,6 +21,14 @@
 Fan Art is a content sharing website for people who like to create artwork based on their favourite things.
 
 ![AmIResponsive Fan Art](./images/amiresponsive.PNG)
+
+## Site Goals
+
+The goal of this site is to provide an online space for sharing content, finding inspiration and creating connections with other artists. The site is geared towards topics typically described as "nerdy" but all art is welcome.  
+Fan Art achieves this by:
+* Giving signed up users the ability to post
+* Giving all users the ability to peruse the site by searching for posts or accounts that fit their interests
+* Giving all users the ability to find users via the Top Accounts, Popular Posts and Hot Topic features
 
 ## Description
 
@@ -185,21 +193,20 @@ I would like to give the users the ability to:
 
 ## Components
 
-Several components were setup throughout the project and was reused throughout.
-[MoreDropdown.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/MoreDropdown.js)
+Several components were setup throughout the project and reused through-out: 
+* [MoreDropdown.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/MoreDropdown.js)
 added a dropdown menu for posts and comments to allow users to edit and delete their own content. Also added a dropdown menu for profiles, so user's can edit their profile or account details.
-AxiosDefault.js
+* AxiosDefault.js
 helped with communication with the backend API
-[NavBar.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/NavBar.js) added a navigation bar to the site, it responds to user logged in status to show the appropriate links.
-[Asset.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/Assets.js) was used for the loading spinner throughout the site.
-[Avatar.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/Assets.js) was used for the user's avatar throughout the site.
-[PageNotFound.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/PageNotFound.js) provides a Page Not Found page, for any errors or if there are no search results.
-[CurrentUserContext.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/contexts/CurrentUserContexts.js)
-confirms the user's logged in status to determine what functionality is available to that user.
-[ProfileDataContext.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/contexts/ProfileDataContext.js) is used for providing data for a user's profile and for following and unfollowing users. 
-[useRedirect.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/hooks/useRedirect.js)
+* [NavBar.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/NavBar.js) added a navigation bar to the site, it responds to user logged in status to show the appropriate links.
+* [Asset.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/Assets.js) was used for the loading spinner throughout the site.
+* [Avatar.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/Assets.js) was used for the user's avatar throughout the site.
+* [PageNotFound.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/components/PageNotFound.js) provides a Page Not Found page, for any errors or if there are no search results.
+* [CurrentUserContext.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/contexts/CurrentUserContexts.js) confirms the user's logged in status to determine what functionality is available to that user.
+* [ProfileDataContext.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/contexts/ProfileDataContext.js) is used for providing data for a user's profile and for following and unfollowing users. 
+* [useRedirect.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/hooks/useRedirect.js)
 redirects a user to a page based on whether they are signed in or out.
-[utils.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/utils/utils.js)
+* [utils.js](https://github.com/AnnieNeilson/fan-art/blob/main/src/utils/utils.js)
 supplies functionality to all of the components that utilise the Infinite Scroll.
 
 ## Technologies Used
@@ -208,8 +215,7 @@ supplies functionality to all of the components that utilise the Infinite Scroll
 * Python  
 -- This project was created using the Django Rest framework, the back-end logic and the means to run/view the Website.
 * React/Bootstrap  
--- The React Bootstrap framework was used through the website for layout and responsiveness.
-
+-- The React Bootstrap framework was used through the website for layout and responsiveness.  
 * Google Fonts
 -- used in the project to import the fonts for the site.
 * GitHub
@@ -227,8 +233,7 @@ supplies functionality to all of the components that utilise the Infinite Scroll
 * Miro 
 -- This was used to create the Entity relationship diagram
 * Font Awesome
--- All the Icons displayed throughout the website are Font Awesome icons.  
-
+-- All the Icons displayed throughout the website are Font Awesome icons
 * Am I Responsive
 -- Multi Device Website Mockup Generator was used to create the Mock up image in this README
 
