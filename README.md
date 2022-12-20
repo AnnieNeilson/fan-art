@@ -84,9 +84,6 @@ Features planned
 * Ability to follow/unfollow other users
 * Ability to edit profile username, password, profile image, profile bio
 
-
-
-
 #### Home Page
 
 Upon arriving at the site the user, who is not signed in will be greeted by a modal encouraging them to sign in or up. This can be closed by clicking the close button, the cross button in the top-right corner, by clicking anywhere outside the modal or by choosing to follow the links and either sign in or up. The user can then continue to the site without necessarily signing in. I did this because I find it discouraging when a site requires you to create an account just to view content. I think it is very off-putting to require a potential user to sign in before they have a chance to decide if the site is even what they are looking for.
